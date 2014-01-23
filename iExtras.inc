@@ -313,7 +313,7 @@ stock GetWeaponModel(playerid)
 
 stock PlayerName(playerid)
 {
-    new name[128+MAX_PLAYER_NAME+128];
+    new name[ MAX_PLAYER_NAME ]; // Note: Fixed a mistake here.
     GetPlayerName(playerid, name, sizeof(name));
 	return 1;
 }
