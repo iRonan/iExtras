@@ -1,5 +1,12 @@
 #include <A_SAMP>
 
+
+new 
+    PlayerName[ MAX_PLAYER_NAME ];
+
+#define GetPlayerNameEx(%0) \
+    PlayerName[%0]
+
 /*
 	The following functions are added in 1.0
 	Release date: 15-12-2014
@@ -316,6 +323,11 @@ stock PlayerName(playerid)
     new name[ MAX_PLAYER_NAME ]; // Note: Fixed a mistake here.
     GetPlayerName(playerid, name, sizeof(name));
 	return 1;
+}
+
+hook OnPlayerConnect(playerid)
+{
+    return GetPlayerName(playerid, PlayerName[playerid], MAX_PLAYER_NAME);
 }
 
 stock IsRocketWeapon(weaponid)
